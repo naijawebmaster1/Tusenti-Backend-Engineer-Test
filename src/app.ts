@@ -36,6 +36,12 @@ if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 // 3. Cookie Parser
 app.use(cookieParser());
 
+app.use(
+  cors({
+    origin: '*',
+    credentials: true,
+  })
+);
 
 // ROUTES
 app.use('/api/auth', authRouter);
