@@ -1,0 +1,315 @@
+{
+	"info": {
+		"_postman_id": "c2d5074d-c6ca-4000-b181-67b5db3ca091",
+		"name": "tusenti-backend-engineer-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27298193",
+		"_collection_link": "https://www.postman.com/clem-aquiline/workspace/tusenti-backend-engineer-test/collection/27298193-c2d5074d-c6ca-4000-b181-67b5db3ca091?action=share&creator=27298193&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"samile@mail.com\",\n  \"password\": \"Pa$$w0rd!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/auth/login",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"xyz\",\n  \"email\": \"samile@mail2.com\",\n  \"password\": \"Pa$$w0rd!\",\n  \"passwordConfirm\": \"Pa$$w0rd!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/auth/register",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Retrieve All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/users/",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "Create a new financial transaction",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1OGRmMTRkMS04MDEyLTQ4NGMtYTQwOC0yYjY2YzA1Yjg4OTEiLCJpYXQiOjE2ODU4ODgyMzEsImV4cCI6MTY4NTg4OTEzMX0.a49o91iKkEHe05roqWpdwcRIBV_50klwImo0KxNUJlbnVVgHyY35ApCmsQPftYLgVW1MlRp2ZJV50UxwTJ84GQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"amount\": 5000,\n  \"description\": \"samile@mail.com\",\n  \"transaction_type\": \"credit\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/transactions/",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"transactions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve details of a specific transaction by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/transactions/c9f0c187-8fbf-4497-be5c-00952c84010e",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"transactions",
+								"c9f0c187-8fbf-4497-be5c-00952c84010e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve all transactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/transactions",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve all transactions associated with a specific user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/transactions/user/58df14d1-8012-484c-a408-2b66c05b8891",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"transactions",
+								"user",
+								"58df14d1-8012-484c-a408-2b66c05b8891"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate a monthly transaction report",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/transactions/reports/monthly",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"transactions",
+								"reports",
+								"monthly"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update details of a specific transaction by ID",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/transactions/c9f0c187-8fbf-4497-be5c-00952c84010e",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"transactions",
+								"c9f0c187-8fbf-4497-be5c-00952c84010e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete details of a specific transaction by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/transactions/c9f0c187-8fbf-4497-be5c-00952c84010e",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"transactions",
+								"c9f0c187-8fbf-4497-be5c-00952c84010e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/health-check",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"health-check"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
