@@ -11,7 +11,8 @@ const connectRedis = async () => {
     await redisClient.connect();
     console.log('Redis client connect successfully');
     redisClient.set('try', 'Hello Welcome to tusenti-backend-engineering-test, we are happy to see you');
-  } catch (error) {
+  }
+  catch (error) {
     console.log(error);
     setTimeout(connectRedis, 5000);
   }
