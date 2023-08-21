@@ -7,7 +7,9 @@ const redisMURL = config.get<string>('redisURL');
 
 const redisUrl = redisMURL;
 
-const redisClient = createClient();
+const redisClient = createClient({
+  url: redisUrl,
+});
 
 const connectRedis = async () => {
   try {
