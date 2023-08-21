@@ -4,6 +4,7 @@ import { createClient } from 'redis';
 
 const redisMURL = config.get<string>('redisURL');
 
+
 const redisUrl = redisMURL;
 
 const redisClient = createClient({
