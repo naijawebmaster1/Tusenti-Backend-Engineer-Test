@@ -19,7 +19,8 @@ const connectRedis = async () => {
   }
   catch (error) {
     console.log(error);
-    console.log("error connceting to reddis");
+    console.log("Error connceting to reddis");
+    console.log(`Error connceting to reddis ${redisUrl}`);
     setTimeout(connectRedis, 5000);
   }
 };
