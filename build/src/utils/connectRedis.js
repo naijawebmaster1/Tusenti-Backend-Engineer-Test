@@ -8,9 +8,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+const config_1 = __importDefault(require("config"));
 const redis_1 = require("redis");
-const redisUrl = 'redis://localhost:6379';
+const redisMURL = config_1.default.get('redisURL');
+const redisUrl = redisMURL;
 const redisClient = (0, redis_1.createClient)({
     url: redisUrl,
 });
@@ -22,6 +27,8 @@ const connectRedis = () => __awaiter(void 0, void 0, void 0, function* () {
     }
     catch (error) {
         console.log(error);
+        console.log("Error connceting to reddis");
+        console.log(`Error connceting to reddis ${redisUrl}`);
         setTimeout(connectRedis, 5000);
     }
 });

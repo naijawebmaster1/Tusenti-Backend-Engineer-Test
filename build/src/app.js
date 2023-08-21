@@ -25,6 +25,7 @@ const user_routes_1 = __importDefault(require("./routes/user.routes"));
 const transaction_routes_1 = __importDefault(require("./routes/transaction.routes"));
 const data_source_1 = require("./utils/data-source");
 const validateEnv_1 = __importDefault(require("./utils/validateEnv"));
+const connectRedis_1 = __importDefault(require("./utils/connectRedis"));
 (() => __awaiter(void 0, void 0, void 0, function* () { return yield data_source_1.AppDataSource.initialize(); }))();
 (0, validateEnv_1.default)();
 const app = (0, express_1.default)();
@@ -49,10 +50,10 @@ app.use('/api/users', user_routes_1.default);
 app.use('/api/transactions', transaction_routes_1.default);
 // HEALTH CHECKER
 app.get('/health-check', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    // const message = await redisClient.get('try');
+    const message = yield connectRedis_1.default.get('try');
     res.status(200).json({
         status: 'success',
-        message: 'Welcome to tusenti-backend-engineering-test, we are happy to see you',
+        message,
     });
 }));
 // UNHANDLED ROUTE
