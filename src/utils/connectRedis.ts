@@ -1,6 +1,10 @@
+import config from 'config';
 import { createClient } from 'redis';
 
-const redisUrl = 'redis://red-cijisd6nqql0l1s2k9f0:6379';
+
+const redisMURL = config.get<string>('redisURL');
+
+const redisUrl = redisMURL;
 
 const redisClient = createClient({
   url: redisUrl,
