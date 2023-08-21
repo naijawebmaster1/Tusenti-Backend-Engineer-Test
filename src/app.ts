@@ -12,6 +12,7 @@ import userRouter from './routes/user.routes';
 import transactionRouter from './routes/transaction.routes';
 import { AppDataSource } from './utils/data-source';
 import validateEnv from './utils/validateEnv';
+import redisClient from './utils/connectRedis';
 
 (async () =>
   await AppDataSource.initialize()
@@ -50,11 +51,11 @@ app.use('/api/transactions', transactionRouter);
 
 // HEALTH CHECKER
 app.get('/health-check', async (req: Request, res: Response) => {
-  // const message = await redisClient.get('try');
+  const message = await redisClient.get('try');
 
   res.status(200).json({
     status: 'success',
-    message: 'Welcome to tusenti-backend-engineering-test, we are happy to see you',
+    message,
   });
 });
 
